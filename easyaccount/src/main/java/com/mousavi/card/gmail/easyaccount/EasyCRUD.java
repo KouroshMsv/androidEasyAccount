@@ -26,7 +26,7 @@ public class EasyCRUD {
     return isCreated;
   }
 
-  protected Account getAccount(String username) {
+  public Account getAccount(String username) {
     if (username.isEmpty()) {
       throw new IllegalArgumentException(username + " not available ");
     }
