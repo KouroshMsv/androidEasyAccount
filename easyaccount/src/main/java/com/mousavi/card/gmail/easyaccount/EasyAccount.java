@@ -8,13 +8,10 @@ import android.os.IBinder;
 public class EasyAccount {
 
   private final EasyAccountAuthenticator authenticator;
-  private static String accountType;
-  private static String authTokenType;
-  private static AccountManager accountManager;
-  
+
   private EasyAccount(Builder builder) {
-    accountType = builder.accountType;
-    authTokenType = builder.authTokenType;
+    String accountType = builder.accountType;
+    String authTokenType = builder.authTokenType;
     Class loginClass = builder.loginClass;
     L l = new L(builder.enable);
     Intent tokenIntent = builder.tokenIntent;
@@ -46,7 +43,7 @@ public class EasyAccount {
 
     private Builder(Service service) {
       this.service = service;
-      accountManager=AccountManager.get(service);
+      AccountManager accountManager = AccountManager.get(service);
     }
 
     public Builder accountType(String accountType) {
@@ -74,22 +71,5 @@ public class EasyAccount {
     }
   }
 
-  public static String getAccountType() {
-    return accountType;
-  }
-
-  public static String getAuthTokenType() {
-    return authTokenType;
-
-  }
-
-  public static AccountManager getAccountManager(){
-    if (accountManager==null){
-      throw new NullPointerException("don't use easyAccount builder in Service");
-    }else{
-      return accountManager;
-    }
-    
-  }
 
 }
