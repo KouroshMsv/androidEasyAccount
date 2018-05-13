@@ -1,14 +1,18 @@
 package com.mousavi.card.gmail.easyaccount;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.IBinder;
 
 public class EasyAccount {
 
   private final EasyAccountAuthenticator authenticator;
   public static final String AUTH_TOKEN_TYPE = "FullAccess";
-
+  
   private EasyAccount(Builder builder) {
     String accountType = builder.accountType;
     Class loginClass = builder.loginClass;
@@ -68,5 +72,8 @@ public class EasyAccount {
     }
   }
 
+
+  
+  
 
 }
