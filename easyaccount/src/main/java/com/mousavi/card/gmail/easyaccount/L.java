@@ -11,10 +11,10 @@ class L {
   }
 
   void d(String message){
-    Log.d("EasyAccountService ---->  ",message);
+    Log.d("EasyAccount ---->  ",message);
   }
   void d(String tag,String message){
-    Log.d("EasyAccountService ---->  "," "+tag+"  :"+message);
+    Log.d("EasyAccount ---->  "," "+tag+"  :"+message);
   }
 
 }

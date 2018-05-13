@@ -1,19 +1,18 @@
 package com.mousavi.card.gmail.easyaccount;
 
 import android.accounts.AccountManager;
-import android.app.Activity;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 
-public class EasyAccountService {
+public class EasyAccount {
 
   private final EasyAccountAuthenticator authenticator;
   private static String accountType;
   private static String authTokenType;
   private static AccountManager accountManager;
   
-  private EasyAccountService(Builder builder) {
+  private EasyAccount(Builder builder) {
     accountType = builder.accountType;
     authTokenType = builder.authTokenType;
     Class loginClass = builder.loginClass;
@@ -70,8 +69,8 @@ public class EasyAccountService {
       return this;
     }
 
-    public EasyAccountService build() {
-      return new EasyAccountService(this);
+    public EasyAccount build() {
+      return new EasyAccount(this);
     }
   }
 
