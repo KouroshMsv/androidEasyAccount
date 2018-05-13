@@ -47,7 +47,7 @@ final class EasyAccountAuthenticator extends AbstractEasyAccountAuthenticator {
     Bundle bundle = new Bundle();
     if (this.authTokenType.equals(authTokenType)) {
       AccountManager am = AccountManager.get(service);
-      String authToken = am.peekAuthToken(account, authTokenType);
+      String authToken = am.peekAuthToken(account, accountType);
       if (authToken != null) {
         l.d("authToken", authToken);
       }
