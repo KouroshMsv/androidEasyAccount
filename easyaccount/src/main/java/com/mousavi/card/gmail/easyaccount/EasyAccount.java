@@ -1,6 +1,5 @@
 package com.mousavi.card.gmail.easyaccount;
 
-import android.accounts.AccountManager;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
@@ -8,17 +7,17 @@ import android.os.IBinder;
 public class EasyAccount {
 
   private final EasyAccountAuthenticator authenticator;
+  public static final String AUTH_TOKEN_TYPE = "FullAccess";
 
   private EasyAccount(Builder builder) {
     String accountType = builder.accountType;
-    String authTokenType = builder.authTokenType;
     Class loginClass = builder.loginClass;
     L l = new L(builder.enable);
     Intent tokenIntent = builder.tokenIntent;
     Service service = builder.service;
     authenticator = new EasyAccountAuthenticator(service, loginClass, l, tokenIntent);
     authenticator.setAccountType(accountType);
-    authenticator.setAuthTokenType(authTokenType);
+    authenticator.setAuthTokenType(AUTH_TOKEN_TYPE);
   }
 
   public IBinder getIBinder() {
@@ -35,7 +34,6 @@ public class EasyAccount {
   public static final class Builder {
 
     private String accountType = "com.mousavi.card.gmail.account";
-    private String authTokenType = "FullAccess";
     private Class loginClass;
     private boolean enable;
     private Intent tokenIntent;
