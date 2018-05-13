@@ -18,7 +18,7 @@ public class EasyCRUD {
     this.accountType = accountType;
   }
 
-  public boolean NewAccount(String username, String password, String token, Bundle userData) {
+  public boolean newAccount(String username, String password, String token, Bundle userData) {
     boolean isCreated;
     Account account = new Account(username, accountType);
     isCreated = accountManager.addAccountExplicitly(account, password, userData);
