@@ -43,7 +43,6 @@ public class EasyAccount {
 
     private Builder(Service service) {
       this.service = service;
-      AccountManager accountManager = AccountManager.get(service);
     }
 
     public Builder accountType(String accountType) {
