@@ -3,7 +3,6 @@ package com.mousavi.card.gmail.easyaccount;
 import android.accounts.Account;
 import android.accounts.AccountAuthenticatorResponse;
 import android.accounts.AccountManager;
-import android.app.Activity;
 import android.app.Service;
 import android.content.Intent;
 import android.os.Bundle;

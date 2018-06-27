@@ -3,17 +3,12 @@ package com.mousavi.card.gmail.easyaccount;
 import android.accounts.AbstractAccountAuthenticator;
 import android.accounts.Account;
 import android.accounts.AccountAuthenticatorResponse;
-import android.accounts.AccountManager;
 import android.accounts.NetworkErrorException;
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 
 abstract class AbstractEasyAccountAuthenticator extends AbstractAccountAuthenticator {
 
-  
 
   AbstractEasyAccountAuthenticator(Context context) {
     super(context);
@@ -24,7 +19,7 @@ abstract class AbstractEasyAccountAuthenticator extends AbstractAccountAuthentic
   public Bundle editProperties(AccountAuthenticatorResponse response, String accountType) {
     return null;
   }
-  
+
 
   @Override
   public Bundle confirmCredentials(AccountAuthenticatorResponse response, Account account, Bundle options)

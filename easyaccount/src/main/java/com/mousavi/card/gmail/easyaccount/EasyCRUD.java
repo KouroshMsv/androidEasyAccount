@@ -67,11 +67,32 @@ public class EasyCRUD {
     }
   }
 
+  public void removeAccount(String userName) {
+    Account account = getAccount(userName);
+    if (VERSION.SDK_INT < VERSION_CODES.M) {
+      accountManager.removeAccount(account, null, null);
+    } else {
+      accountManager.removeAccountExplicitly(account);
+    }
+  }
+
   public void updateToken(Account account, String token) {
     accountManager.setAuthToken(account, EasyAccount.AUTH_TOKEN_TYPE, token);
   }
 
+  public void updateToken(String userName, String token) {
+    Account account = getAccount(userName);
+    accountManager.setAuthToken(account, EasyAccount.AUTH_TOKEN_TYPE, token);
+  }
+
   public void updateUserData(Account account, Map<String, String> userData) {
+    for (Map.Entry<String, String> entry : userData.entrySet()) {
+      accountManager.setUserData(account, entry.getKey(), entry.getValue());
+    }
+  }
+
+  public void updateUserData(String userName, Map<String, String> userData) {
+    Account account = getAccount(userName);
     for (Map.Entry<String, String> entry : userData.entrySet()) {
       accountManager.setUserData(account, entry.getKey(), entry.getValue());
     }
@@ -82,11 +103,21 @@ public class EasyCRUD {
     updateUserData(account, userData);
   }
 
+  public void updateAccount(String userName, String token, Map<String, String> userData) {
+    Account account = getAccount(userName);
+    updateToken(account, token);
+    updateUserData(account, userData);
+  }
+
   public AccountManager getAccountManager() {
     return accountManager;
   }
 
   public String getUserData(Account account, String key) {
     return accountManager.getUserData(account, key);
+  }
+
+  public String getUserData(String userName, String key) {
+    return accountManager.getUserData(getAccount(userName), key);
   }
 }
